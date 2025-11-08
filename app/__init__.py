@@ -17,9 +17,12 @@ def create_app():
     from app.routes.main import main
     from app.routes.vessels import vessels_bp
     from app.routes.fuels import fuels_bp
+    from app.routes.compliance import compliance_bp
     
     app.register_blueprint(main)
     app.register_blueprint(vessels_bp)
     app.register_blueprint(fuels_bp)
+    app.register_blueprint(compliance_bp)
+
 
     return app
