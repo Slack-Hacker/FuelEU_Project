@@ -8,14 +8,12 @@ def create_app():
     app = Flask(__name__)
     CORS(app)
 
-    # Load configuration
     app.config.from_object('app.config.Config')
-
-    # Initialize database
     db.init_app(app)
 
-    # Register routes
-    from app.routes import main
+    from app.routes.main import main
+    from app.routes.vessels import vessels_bp
     app.register_blueprint(main)
+    app.register_blueprint(vessels_bp)
 
     return app
